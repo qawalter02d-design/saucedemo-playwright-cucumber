@@ -10,4 +10,8 @@ export class InventoryPage {
   async getCartBadge() {
     return this.page.locator('.shopping_cart_badge');
   }
+
+  async openCart() {
+    await this.page.click('.shopping_cart_link');
+  }
 }

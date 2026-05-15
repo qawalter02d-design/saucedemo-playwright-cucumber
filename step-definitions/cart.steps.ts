@@ -24,8 +24,10 @@ When('agrego un producto al carrito', async function () {
 });
 
 Then('debo visualizar un producto en el carrito', async function () {
-  const cartBadge = await inventoryPage.getCartBadge();
-  await expect(cartBadge).toHaveText('1');
-  await page.waitForTimeout(2000);
+  await inventoryPage.openCart();
+
+  const product = page.locator('.inventory_item_name');
+  await expect(product).toHaveText('Sauce Labs Backpack');
+
   await browser.close();
 });

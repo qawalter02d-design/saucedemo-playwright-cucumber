@@ -89,4 +89,4 @@ La ejecución debe mostrar:
 
 ## Autor
 
-Walter
+Ing: Walter Enrique Diaz Castillo

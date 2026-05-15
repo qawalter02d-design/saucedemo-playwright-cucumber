@@ -2,7 +2,7 @@ import { Given, When, Then } from '@cucumber/cucumber';
 import { chromium, expect } from '@playwright/test';
 import { LoginPage } from '../pages/LoginPage';
 import { InventoryPage } from '../pages/InventoryPage';
-
+import { users } from '../utils/credentials';
 let browser: any;
 let page: any;
 let loginPage: LoginPage;

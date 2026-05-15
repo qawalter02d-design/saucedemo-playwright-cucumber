@@ -2,11 +2,11 @@ Feature: Login Sauce Demo
 
   Scenario: Login exitoso
     Given que estoy en la página de login
-    When ingreso usuario "standard_user" y contraseña "secret_sauce"
+    When inicio sesión con usuario estándar
     Then debo visualizar la página de inventario
 
 
-    Scenario: Login fallido
+  Scenario: Login fallido
     Given que estoy en la página de login
-    When ingreso usuario "usuario_invalido" y contraseña "12345"
+    When inicio sesión con usuario bloqueado
     Then debo visualizar mensaje de error

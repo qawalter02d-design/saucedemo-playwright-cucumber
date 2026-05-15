@@ -3,7 +3,7 @@ import { chromium, expect } from '@playwright/test';
 import { LoginPage } from '../pages/LoginPage';
 import { InventoryPage } from '../pages/InventoryPage';
 import { CheckoutPage } from '../pages/CheckoutPage';
-
+import { users } from '../utils/credentials';
 let browser: any;
 let page: any;
 let loginPage: LoginPage;

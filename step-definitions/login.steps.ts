@@ -1,7 +1,7 @@
 import { Given, When, Then } from '@cucumber/cucumber';
 import { chromium, expect } from '@playwright/test';
 import { LoginPage } from '../pages/LoginPage';
-
+import { users } from '../utils/credentials';
 let browser: any;
 let page: any;
 let loginPage: LoginPage;
@@ -13,12 +13,13 @@ Given('que estoy en la página de login', async function () {
   await loginPage.navigate();
 });
 
-When(
-  'ingreso usuario {string} y contraseña {string}',
-  async function (username: string, password: string) {
-    await loginPage.login(username, password);
-  }
-);
+When('inicio sesión con usuario estándar', async function () {
+  await loginPage.login(users.standard.username, users.standard.password);
+});
+
+When('inicio sesión con usuario bloqueado', async function () {
+  await loginPage.login(users.locked.username, users.locked.password);
+});
 
 Then('debo visualizar la página de inventario', async function () {
   await expect(page).toHaveURL(/inventory/);

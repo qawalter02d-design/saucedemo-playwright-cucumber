@@ -5,6 +5,7 @@ module.exports = {
       'hooks/*.ts'
     ],
     requireModule: ['ts-node/register'],
-    format: ['progress']
+    format: ['progress'],
+    timeout: 30000
   }
 };

@@ -9,14 +9,14 @@ let loginPage: LoginPage;
 let inventoryPage: InventoryPage;
 
 Given('que inicio sesión con credenciales válidas', async function () {
-  browser = await chromium.launch({ headless: false });
+ browser = await chromium.launch({ headless: true });
   page = await browser.newPage();
 
   loginPage = new LoginPage(page);
   inventoryPage = new InventoryPage(page);
 
   await loginPage.navigate();
-  await loginPage.login('standard_user', 'secret_sauce');
+  await loginPage.login(users.standard.username, users.standard.password);
 });
 
 When('agrego un producto al carrito', async function () {

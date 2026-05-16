@@ -11,7 +11,7 @@ let inventoryPage: InventoryPage;
 let checkoutPage: CheckoutPage;
 
 Given('que inicio sesión y agrego un producto', async function () {
-  browser = await chromium.launch({ headless: false });
+browser = await chromium.launch({ headless: true });
   page = await browser.newPage();
 
   loginPage = new LoginPage(page);
@@ -19,7 +19,7 @@ Given('que inicio sesión y agrego un producto', async function () {
   checkoutPage = new CheckoutPage(page);
 
   await loginPage.navigate();
-  await loginPage.login('standard_user', 'secret_sauce');
+ await loginPage.login(users.standard.username, users.standard.password);
   await inventoryPage.addProductToCart();
 });
 

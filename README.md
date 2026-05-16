@@ -50,6 +50,31 @@ saucedemo-playwright/
 └── README.md
 ```
 
+## Estrategia de automatización
+
+La estrategia de automatización se basa en los siguientes principios:
+
+**Enfoque BDD (Behavior Driven Development)**
+Se utilizó Cucumber con Gherkin para escribir los escenarios en lenguaje natural, permitiendo que tanto el equipo técnico como el negocio puedan entender las pruebas sin necesidad de conocer el código.
+
+**Patrón Page Object Model (POM)**
+Cada página de la aplicación tiene su propia clase en la carpeta `pages/`. Esto permite:
+- Reutilizar el código de interacción con la UI en múltiples tests
+- Centralizar los selectores en un solo lugar
+- Facilitar el mantenimiento cuando la UI cambia
+
+**Separación de responsabilidades**
+- `features/` — define el comportamiento esperado en Gherkin
+- `step-definitions/` — conecta los pasos Gherkin con el código
+- `pages/` — encapsula la interacción con cada página
+- `utils/` — centraliza datos compartidos como credenciales
+
+**Gestión de credenciales**
+Las credenciales se centralizan en `utils/credentials.ts` para evitar datos hardcodeados en los tests y facilitar su mantenimiento.
+
+**Integración continua**
+Se configuró un pipeline con GitHub Actions que ejecuta automáticamente toda la suite de pruebas en cada push o pull request a la rama `main`, garantizando que ningún cambio rompa la funcionalidad existente.
+
 ## Instalación
 
 Clonar repositorio:

@@ -7,7 +7,7 @@ let page: any;
 let loginPage: LoginPage;
 
 Given('que estoy en la página de login', async function () {
-  browser = await chromium.launch({ headless: false });
+ browser = await chromium.launch({ headless: true });
   page = await browser.newPage();
   loginPage = new LoginPage(page);
   await loginPage.navigate();
